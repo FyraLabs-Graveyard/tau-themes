@@ -25,6 +25,9 @@ Provides:       adw-gtk3-git
 Conflicts:      adw-gtk3
 Conflicts:      adw-gtk3-git
 
+%description adw
+The theme from libadwaita ported to GTK-3
+
 %prep
 %setup -q
 
