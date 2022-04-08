@@ -3,7 +3,7 @@
 Summary:        tauOS GTK Themes
 Name:           tau-themes
 Version:        1.1
-Release:        1
+Release:        1.1
 License:        GPLv3
 URL:            https://tauos.co
 Source0:        %{name}-%{version}.tar.gz
@@ -39,6 +39,7 @@ git clone --recurse-submodules https://github.com/lassekongo83/adw-gtk3.git
 # ADW Build
 cd adw-gtk3
 git checkout tags/v%{adw_version}
+git am ../adw-gtk3-accent-colours.patch
 %meson
 %meson_build
 
@@ -60,5 +61,8 @@ cd adw-gtk3
 %{_datadir}/themes/adw-gtk3-dark/*
 
 %changelog
+* Thu Apr 7 2022 Jamie Murphy <jamie@fyralabs.com> - 1.1-2
+- Add accent colours
+
 * Thu Apr 7 2022 Jamie Murphy <jamie@fyralabs.com> - 1.1-1
 - Initial Release
