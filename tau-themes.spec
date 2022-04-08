@@ -48,8 +48,17 @@ git checkout tags/v%{adw_version}
 cd adw-gtk3
 %meson_install
 
+# Install licenses
+mkdir -p licenses
+install -pm 0644 LICENSE licenses/LICENSE
+
 %files
+%license licenses/LICENSE
 
 %files adw
 %{_datadir}/themes/adw-gtk3/*
 %{_datadir}/themes/adw-gtk3-dark/*
+
+%changelog
+* Thu Apr 7 2022 Jamie Murphy <jamie@fyralabs.com> - 1.1-1
+- Initial Release
