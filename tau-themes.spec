@@ -44,13 +44,13 @@ git checkout tags/v%{adw_version}
 
 %install
 
-# ADW Install
-cd adw-gtk3
-%meson_install
-
 # Install licenses
 mkdir -p licenses
 install -pm 0644 LICENSE licenses/LICENSE
+
+# ADW Install
+cd adw-gtk3
+%meson_install
 
 %files
 %license licenses/LICENSE
