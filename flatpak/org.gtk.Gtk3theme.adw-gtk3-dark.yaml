@@ -1,0 +1,32 @@
+id: org.gtk.Gtk3theme.adw-gtk3-dark
+branch: '3.22'
+runtime: org.freedesktop.Platform
+runtime-version: '21.08'
+sdk: org.freedesktop.Sdk
+
+build-extension: true
+appstream-compose: false
+separate-locales: false
+
+modules:
+  - name: adw-gtk3-dark
+    buildsystem: simple
+    build-commands:
+      - install -d /usr/share/runtime/share/themes/adw-gtk3-dark
+      - cp -a adw-gtk3-dark/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3-dark
+    sources:
+      - type: archive
+        strip-components: 0
+        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v1.6/adw-gtk3v1-6.tar.xz
+        sha256: 08240df14c8ff47215e1bfd83f48a4143f97d1f2aae17b62496f3926f1a95e29
+      - type: patch
+        path: dark.patch
+
+  - name: appdata
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 org.gtk.Gtk3theme.adw-gtk3-dark.appdata.xml -t ${FLATPAK_DEST}/share/appdata
+      - appstream-compose --basename=org.gtk.Gtk3theme.adw-gtk3-dark --prefix=${FLATPAK_DEST} --origin=flatpak org.gtk.Gtk3theme.adw-gtk3-dark
+    sources:
+      - type: file
+        path: org.gtk.Gtk3theme.adw-gtk3-dark.appdata.xml
