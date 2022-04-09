@@ -1,3 +1,4 @@
 *.sha1sum
 *.tar.gz
 *.rpm
+*.flatpak-builder
