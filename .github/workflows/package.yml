@@ -35,6 +35,7 @@ jobs:
       tauOSVersion: "1.1"
     secrets:
       privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+      teleportIdentity: ${{ secrets.TELEPORT_IDENTITY }}
   packageAdwFlatpak:
     uses: tau-OS/github-actions/.github/workflows/build-flatpak.yml@main
     with:
