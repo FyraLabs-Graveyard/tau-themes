@@ -31,8 +31,9 @@ Conflicts:      adw-gtk3-git
 The theme from libadwaita ported to GTK-3
 
 %prep
-tar -xf %SOURCE2
-ls
+%setup -c -T -D -q -a 2
+cd adw-gtk3-%adw_version
+%patch0 -p1
 
 %build
 cd adw-gtk3-%adw_version
